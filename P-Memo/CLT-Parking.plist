@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>selectedParkingSpot</key>
+	<string>Parkingfrom plist</string>
+	<key>selectedReminderDate</key>
+	<date>2014-01-12T04:39:46Z</date>
+	<key>note</key>
+	<string>Note from plist</string>
+	<key>parkingSpotPickerIndex0</key>
+	<integer>0</integer>
+	<key>parkingSpotPickerIndex1</key>
+	<integer>0</integer>
+</dict>
+</plist>
