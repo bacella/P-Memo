@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		410D8419187FAD5400FE65F2 /* clt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clt.png; sourceTree = "<group>"; };
-		41457F5A1879DEAC00FB5477 /* Park + Fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park + Fly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41457F5A1879DEAC00FB5477 /* Park And Fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park And Fly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41457F5D1879DEAC00FB5477 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41457F5F1879DEAC00FB5477 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		41457F611879DEAC00FB5477 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -99,7 +99,7 @@
 		41457F5B1879DEAC00FB5477 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				41457F5A1879DEAC00FB5477 /* Park + Fly.app */,
+				41457F5A1879DEAC00FB5477 /* Park And Fly.app */,
 				41457F7B1879DEAC00FB5477 /* P-MemoTests.xctest */,
 			);
 			name = Products;
@@ -180,7 +180,7 @@
 			);
 			name = "P-Memo";
 			productName = "P-Memo";
-			productReference = 41457F5A1879DEAC00FB5477 /* Park + Fly.app */;
+			productReference = 41457F5A1879DEAC00FB5477 /* Park And Fly.app */;
 			productType = "com.apple.product-type.application";
 		};
 		41457F7A1879DEAC00FB5477 /* P-MemoTests */ = {
@@ -400,7 +400,7 @@
 				GCC_PREFIX_HEADER = "P-Memo/P-Memo-Prefix.pch";
 				INFOPLIST_FILE = "P-Memo/P-Memo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "Park + Fly";
+				PRODUCT_NAME = "Park And Fly";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -418,7 +418,7 @@
 				GCC_PREFIX_HEADER = "P-Memo/P-Memo-Prefix.pch";
 				INFOPLIST_FILE = "P-Memo/P-Memo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "Park + Fly";
+				PRODUCT_NAME = "Park And Fly";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;

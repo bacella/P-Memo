@@ -23,6 +23,7 @@
 @synthesize parkingSelector;
 
 //@synthesize hourlyStallArray;
+@synthesize hourlyStallArray;
 @synthesize dailyEastStallArray;
 @synthesize dailyWestStallArray;
 @synthesize dailyNorthStallArray;
@@ -89,9 +90,16 @@
     parkingSelector.delegate = self;
     parkingSelector.dataSource = self;
     
-    lotSelection = [[NSArray alloc] initWithObjects:@"Daily East", @"Daily West", @"Daily North",
-                     @"Long Term 1", @"Long Term 2", @"Long Term 3", @"Long Term 4", nil];
+    lotSelection = [[NSArray alloc] initWithObjects:@"Hourly", @"Daily East", @"Daily West", @"Daily North",
+                    @"Long Term 1", @"Long Term 2", @"Long Term 3", @"Long Term 4", nil];
     
+    hourlyStallArray = [[NSArray alloc] initWithObjects:
+                        @"Lev. 2 Row A",@"Lev. 2 Row B", @"Lev. 2 Row C", @"Lev. 2 Row D", @"Lev. 2 Row E", @"Lev. 2 Row F", @"Lev. 2 Row G", @"Lev. 2 Row H", @"Lev. 2 Row J", @"Lev. 2 Row K", @"Lev. 2 Row L", @"Lev. 2 Row M", @"Lev. 2 Row N", @"Lev. 2 Row P", @"Lev. 2 Row Q",
+                        @"Lev. 3 Row A",@"Lev. 3 Row B", @"Lev. 3 Row C", @"Lev. 3 Row D", @"Lev. 3 Row E", @"Lev. 3 Row F", @"Lev. 3 Row G", @"Lev. 3 Row H", @"Lev. 3 Row J", @"Lev. 3 Row K", @"Lev. 3 Row L", @"Lev. 3 Row M", @"Lev. 3 Row N", @"Lev. 3 Row P", @"Lev. 3 Row Q",
+                        @"Lev. 4 Row A",@"Lev. 4 Row B", @"Lev. 4 Row C", @"Lev. 4 Row D", @"Lev. 4 Row E", @"Lev. 4 Row F", @"Lev. 4 Row G", @"Lev. 4 Row H", @"Lev. 4 Row J", @"Lev. 4 Row K", @"Lev. 4 Row L", @"Lev. 4 Row M", @"Lev. 4 Row N", @"Lev. 4 Row P", @"Lev. 4 Row Q",
+                        @"Lev. 5 Row A",@"Lev. 5 Row B", @"Lev. 5 Row C", @"Lev. 5 Row D", @"Lev. 5 Row E", @"Lev. 5 Row F", @"Lev. 5 Row G", @"Lev. 5 Row H", @"Lev. 5 Row J", @"Lev. 5 Row K", @"Lev. 5 Row L", @"Lev. 5 Row M", @"Lev. 5 Row N", @"Lev. 5 Row P", @"Lev. 5 Row Q",
+                        @"Lev. 6 Row A",@"Lev. 6 Row B", @"Lev. 6 Row C", @"Lev. 6 Row D", @"Lev. 6 Row E", @"Lev. 6 Row F", @"Lev. 6 Row G", @"Lev. 6 Row H", @"Lev. 6 Row J", @"Lev. 6 Row K", @"Lev. 6 Row L", @"Lev. 6 Row M", @"Lev. 6 Row N", @"Lev. 6 Row P", @"Lev. 6 Row Q",
+                        @"Lev. 7 Row A",@"Lev. 7 Row B", @"Lev. 7 Row C", @"Lev. 7 Row D", @"Lev. 7 Row E", @"Lev. 7 Row F", @"Lev. 7 Row G", @"Lev. 7 Row H", @"Lev. 7 Row J", @"Lev. 7 Row K", @"Lev. 7 Row L", @"Lev. 7 Row M", @"Lev. 7 Row N", @"Lev. 7 Row P", @"Lev. 7 Row Q", nil];
     dailyEastStallArray = [[NSArray alloc] initWithObjects:@"Surf. Lot-A", @"Lev. 1 Row A", @"Lev. 1 Row B", @"Lev. 1 Row C", @"Lev. 1 Row D", @"Lev. 1 Row E", @"Lev. 1 Row F",
                            @"Lev. 1 Row G", @"Lev. 1 Row H", @"Lev. 1 Row J", @"Lev. 2 Row A",@"Lev. 2 Row B", @"Lev. 2 Row C", @"Lev. 2 Row D", @"Lev. 2 Row E", @"Lev. 2 Row F",
                            @"Lev. 2 Row G", @"Lev. 2 Row H", @"Lev. 2 Row J", @"Lev. 3 Row A",@"Lev. 3 Row B", @"Lev. 3 Row C", @"Lev. 3 Row D", @"Lev. 3 Row E", @"Lev. 3 Row F",
@@ -120,7 +128,9 @@
     NSInteger parkingSpotPickerIndex1FromString = [[temp objectForKey:@"parkingSpotPickerIndex1"] integerValue];
     
     lotSelected = [[NSString alloc] initWithFormat:@"%@", [lotSelection objectAtIndex:parkingSpotPickerIndex0FromString]];
-    if([lotSelected isEqualToString:@"Daily East"]) {
+    if([lotSelected isEqualToString:@"Hourly"]) {
+        stallSelection = hourlyStallArray;
+    } else if ([lotSelected isEqualToString:@"Daily East"]) {
         stallSelection = dailyEastStallArray;
     } else if ([lotSelected isEqualToString:@"Daily West"]) {
         stallSelection = dailyWestStallArray;
@@ -196,9 +206,10 @@
     if (component == 0) {
         lotSelected = [[NSString alloc] initWithFormat:@"%@", [lotSelection objectAtIndex:row0]];
         
-        if([lotSelected isEqualToString:@"Daily East"]) {
-            stallSelection = dailyEastStallArray;
-        } else if ([lotSelected isEqualToString:@"Daily West"]) {
+        if([lotSelected isEqualToString:@"Hourly"]) {
+            stallSelection = hourlyStallArray;
+        } else if ([lotSelected isEqualToString:@"Daily East"]) {
+            stallSelection = dailyEastStallArray;        } else if ([lotSelected isEqualToString:@"Daily West"]) {
             stallSelection = dailyWestStallArray;
         } else if ([lotSelected isEqualToString:@"Daily North"]) {
             stallSelection = dailyNorthStallArray;

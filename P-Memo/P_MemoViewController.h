@@ -30,6 +30,7 @@ together with more code in the implementation file:
 @property (strong, nonatomic) NSArray *lotSelection;
 @property (strong, nonatomic) NSArray *stallSelection;
 
+@property (strong, nonatomic) NSArray *hourlyStallArray;
 @property (strong, nonatomic) NSArray *dailyEastStallArray;
 @property (strong, nonatomic) NSArray *dailyWestStallArray;
 @property (strong, nonatomic) NSArray *dailyNorthStallArray;
