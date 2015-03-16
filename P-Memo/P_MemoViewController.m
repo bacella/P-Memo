@@ -152,7 +152,7 @@
     [self.parkingSelector selectRow:parkingSpotPickerIndex0FromString inComponent:0 animated:YES];
     [self.parkingSelector selectRow:parkingSpotPickerIndex1FromString inComponent:1 animated:YES];
     
-// Initialize parkingInfoLabel, it will change with selection
+    // Initialize parkingInfoLabel, it will change with selection
     lotSelected = [[NSString alloc] initWithFormat:@"%@", [lotSelection objectAtIndex:parkingSpotPickerIndex0FromString]];
     stallSelected = [[NSString alloc] initWithFormat:@"%@", [stallSelection objectAtIndex:parkingSpotPickerIndex1FromString]];
     parkingInfoLabel.text = [[NSString alloc] initWithFormat:@" %@ - %@",
@@ -161,8 +161,20 @@
     
     plistReminderString = parkingInfoLabel.text;
 
-// Necessary to dismiss keyboard when "Done" is touched
+    // Necessary to dismiss keyboard when "Done" is touched
     self.myParkingNotes.delegate = self;
+    
+    // Set the UIPicker text Color
+    [parkingSelector setValue:[UIColor whiteColor] forKeyPath:@"textColor"];
+    
+    // Status bar color
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+}
+
+// Status bar color
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 // Necessary to dismiss keyboard when "Done" is touched
@@ -194,6 +206,20 @@
         return [stallSelection objectAtIndex:row0];
     }
 }
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSAttributedString *attString  = nil;
+    NSString *title = @"";
+    
+    if (component == 0)
+        title = [lotSelection objectAtIndex:row];
+    if (component == 1)
+        title = [stallSelection objectAtIndex:row];
+    attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    return attString;
+}
+
 
 // if user choose from pickerview, it calls this function;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row0 inComponent:(NSInteger)component{
@@ -248,7 +274,7 @@
     NSInteger tpmPlistPickerViewSelectedRow1 = [parkingSelector selectedRowInComponent:1];
     plistPickerViewSelectedRow0 = [NSString stringWithFormat:@"%ld", (long)tpmPlistPickerViewSelectedRow0];
     plistPickerViewSelectedRow1 = [NSString stringWithFormat:@"%ld", (long)tpmPlistPickerViewSelectedRow1];
-
+    
     // Write plist upon pickerView changes
     [self savingPlist];
 }

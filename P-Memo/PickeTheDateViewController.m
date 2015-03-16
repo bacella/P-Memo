@@ -126,8 +126,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.eventStore = [[EKEventStore alloc] init];
@@ -137,10 +136,30 @@
         if (!success)
             NSLog(@"User has not granted access to add reminder.");
     }];
+    
+    // Set UIDatepicker Text Color
+    [pickTheDate setValue:[UIColor whiteColor] forKeyPath:@"textColor"];
+    
+    SEL selector = NSSelectorFromString( @"setHighlightsToday:" );
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature :
+                                [UIDatePicker
+                                 instanceMethodSignatureForSelector:selector]];
+    BOOL no = NO;
+    [invocation setSelector:selector];
+    [invocation setArgument:&no atIndex:2];
+    [invocation invokeWithTarget:pickTheDate];
+    
+    // Status bar color
+    [self setNeedsStatusBarAppearanceUpdate];
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
+// Status bar color
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
