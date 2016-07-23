@@ -49,7 +49,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Necessary to get the lable with rounded corners
     parkingInfoLabel.layer.cornerRadius = 7;
     parkingInfoLabel.layer.borderColor = [UIColor grayColor].CGColor;
@@ -114,7 +114,7 @@
     dailyNorthStallArray = [[NSArray alloc] initWithObjects:@"'H' Lot", @"'J' Lot", @"'K' Lot", nil];
     longTerm1StallArray = [[NSArray alloc] initWithObjects:@"Shelter 'L'", @"Shelter 'M'", @"Shelter 'N'", @"Shelter 'O'", @"Shelter 'P'", @"Shelter 'Q'", @"Shelter 'R'",
                            @"Shelter 'S'", nil];
-    longTerm2StallArray = [[NSArray alloc] initWithObjects:@"Shelter 'T'", @"Shelter 'U'", @"Shelter 'V'", @"Shelter 'W'", @"Shelter 'X'", nil];
+    longTerm2StallArray = [[NSArray alloc] initWithObjects:@"Shelter 'T'", @"Shelter 'U'", @"Shelter 'V'", @"Shelter 'W'", @"Shelter 'X'", @"Lower 'X'", nil];
     longTerm3StallArray = [[NSArray alloc] initWithObjects:@"'Z' Lot", nil];
     longTerm4StallArray = [[NSArray alloc] initWithObjects:@"A-1", @"A-3", @"A-5", @"B-1", @"B-3", @"B-5", @"C-1", @"C-3", @"C-5", @"D-1", @"D-3", @"D-5",
                            @"E-1", @"E-3", @"E-5", @"F-1", @"F-3", @"F-5", @"G-1", nil];
